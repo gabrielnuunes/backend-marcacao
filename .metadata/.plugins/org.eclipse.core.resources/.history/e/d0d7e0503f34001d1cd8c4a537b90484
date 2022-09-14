@@ -1,0 +1,13 @@
+package com.example.demo.domain.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Paciente {
+
+	
+	private Long id;
+	
+	private String nome;
+	
+}
