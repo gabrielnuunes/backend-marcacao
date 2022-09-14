@@ -238,3 +238,357 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 12:01:55.538
 !MESSAGE executing callback sts4.classpath.vnRelxfo SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:17:52.732
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:17:52.735
+!MESSAGE classpath=68 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:17:52.738
+!MESSAGE buffering callback sts4.classpath.vnRelxfo Backend-marcacao false 68
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:17:52.738
+!MESSAGE executing callback sts4.classpath.vnRelxfo 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:17:52.751
+!MESSAGE executing callback sts4.classpath.vnRelxfo SUCCESS [done]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-14 13:18:57.745
+!MESSAGE The POM for javax.persistence:com.springsource.javax.persistence:jar:2.0.0 is missing, no dependency information available
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:18:58.218
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:18:58.222
+!MESSAGE classpath=69 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:18:58.225
+!MESSAGE buffering callback sts4.classpath.vnRelxfo Backend-marcacao false 68
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:18:58.225
+!MESSAGE executing callback sts4.classpath.vnRelxfo 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:18:58.266
+!MESSAGE executing callback sts4.classpath.vnRelxfo SUCCESS [done]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-14 13:18:59.019
+!MESSAGE The POM for javax.persistence:com.springsource.javax.persistence:jar:2.0.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2022-09-14 13:18:59.677
+!MESSAGE Could not download sources for javax.persistence:com.springsource.javax.persistence:2.0.0
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact javax.persistence:com.springsource.javax.persistence:jar:sources:2.0.0
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing javax.persistence:com.springsource.javax.persistence:jar:sources:2.0.0
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2022-09-14 13:18:59.678
+!MESSAGE Could not resolve artifact javax.persistence:com.springsource.javax.persistence:jar:sources:2.0.0
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2022-09-14 13:18:59.678
+!MESSAGE Missing javax.persistence:com.springsource.javax.persistence:jar:sources:2.0.0
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-14 13:19:22.138
+!MESSAGE The POM for javax.persistence:com.springsource.javax.persistence:jar:2.0.0 is missing, no dependency information available
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:22.586
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:22.598
+!MESSAGE classpath=69 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:22.601
+!MESSAGE buffering callback sts4.classpath.vnRelxfo Backend-marcacao false 68
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:22.602
+!MESSAGE executing callback sts4.classpath.vnRelxfo 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:22.624
+!MESSAGE executing callback sts4.classpath.vnRelxfo SUCCESS [done]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-14 13:19:22.915
+!MESSAGE The POM for javax.persistence:com.springsource.javax.persistence:jar:2.0.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2022-09-14 13:19:23.966
+!MESSAGE Could not download javadoc for javax.persistence:com.springsource.javax.persistence:2.0.0
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not resolve artifact javax.persistence:com.springsource.javax.persistence:jar:javadoc:2.0.0
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:297)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: Missing javax.persistence:com.springsource.javax.persistence:jar:javadoc:2.0.0
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2022-09-14 13:19:23.966
+!MESSAGE Could not resolve artifact javax.persistence:com.springsource.javax.persistence:jar:javadoc:2.0.0
+!SUBENTRY 2 org.eclipse.m2e.core 4 -1 2022-09-14 13:19:23.967
+!MESSAGE Missing javax.persistence:com.springsource.javax.persistence:jar:javadoc:2.0.0
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:54.221
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:54.225
+!MESSAGE classpath=69 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:54.228
+!MESSAGE buffering callback sts4.classpath.vnRelxfo Backend-marcacao false 69
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:54.229
+!MESSAGE executing callback sts4.classpath.vnRelxfo 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:19:54.245
+!MESSAGE executing callback sts4.classpath.vnRelxfo SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:24.842
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.vnRelxfo
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:24.842
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.vnRelxfo
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:24.843
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:24.843
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.vnRelxfo => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:27.895
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:27.896
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@5fd88e[org.springframework.tooling.boot.ls:1.33.0.202204250653(id=569)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:27.896
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.eclipse.jface 2 0 2022-09-14 13:21:28.290
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-09-14 13:21:28.290
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6409e12e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@27d357e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.017
+!MESSAGE Boot LS startup time from start to initialized: 2120ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.137
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.fZfysvUkisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.138
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.139
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.140
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.141
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.141
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.fZfysvUk => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.146
+!MESSAGE classpath=69 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.149
+!MESSAGE buffering callback sts4.classpath.fZfysvUk Backend-marcacao false 69
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.150
+!MESSAGE executing callback sts4.classpath.fZfysvUk 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:21:30.496
+!MESSAGE executing callback sts4.classpath.fZfysvUk SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:10.436
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:10.443
+!MESSAGE classpath=91 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:10.447
+!MESSAGE buffering callback sts4.classpath.fZfysvUk Backend-marcacao false 91
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:10.448
+!MESSAGE executing callback sts4.classpath.fZfysvUk 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:10.485
+!MESSAGE executing callback sts4.classpath.fZfysvUk SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:21.228
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.fZfysvUk
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:21.229
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.fZfysvUk
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:21.230
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:26:21.230
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.fZfysvUk => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:26.419
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:26.419
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@5fd88e[org.springframework.tooling.boot.ls:1.33.0.202204250653(id=569)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:26.420
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.442
+!MESSAGE Boot LS startup time from start to initialized: 2022ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.524
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.mbYjTbfrisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.525
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.525
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.526
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.526
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.527
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.mbYjTbfr => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.532
+!MESSAGE classpath=91 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.536
+!MESSAGE buffering callback sts4.classpath.mbYjTbfr Backend-marcacao false 91
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.537
+!MESSAGE executing callback sts4.classpath.mbYjTbfr 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:28.877
+!MESSAGE executing callback sts4.classpath.mbYjTbfr SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:29.470
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:29.475
+!MESSAGE classpath=92 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:29.480
+!MESSAGE buffering callback sts4.classpath.mbYjTbfr Backend-marcacao false 92
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:29.480
+!MESSAGE executing callback sts4.classpath.mbYjTbfr 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:29.507
+!MESSAGE executing callback sts4.classpath.mbYjTbfr SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:32.323
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:32.326
+!MESSAGE classpath=92 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:32.329
+!MESSAGE buffering callback sts4.classpath.mbYjTbfr Backend-marcacao false 92
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:32.329
+!MESSAGE executing callback sts4.classpath.mbYjTbfr 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:27:32.345
+!MESSAGE executing callback sts4.classpath.mbYjTbfr SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:28:53.196
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.mbYjTbfr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:28:53.196
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.mbYjTbfr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:28:53.197
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:28:53.198
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.mbYjTbfr => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:05.216
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:05.217
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@5fd88e[org.springframework.tooling.boot.ls:1.33.0.202204250653(id=569)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:05.217
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.074
+!MESSAGE Boot LS startup time from start to initialized: 1856ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.151
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.KCAdfYSIisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.151
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.152
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.152
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.153
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.153
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.KCAdfYSI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.158
+!MESSAGE classpath=92 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.162
+!MESSAGE buffering callback sts4.classpath.KCAdfYSI Backend-marcacao false 92
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.162
+!MESSAGE executing callback sts4.classpath.KCAdfYSI 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-14 13:29:07.469
+!MESSAGE executing callback sts4.classpath.KCAdfYSI SUCCESS [done]
