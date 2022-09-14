@@ -1,0 +1,8 @@
+package com.example.demo.domain.service;
+
+@Service
+public class CadastroPacienteService {
+
+	
+	
+}

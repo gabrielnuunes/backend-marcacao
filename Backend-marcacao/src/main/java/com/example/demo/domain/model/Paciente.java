@@ -8,8 +8,6 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-import lombok.Data;
-
 
 @Entity
 @JsonRootName("paciente")
