@@ -17,10 +17,10 @@ public class CadastroPacienteService {
 	private PacienteRepository pacienteRepository;
 	
 	private static final String MSG_PACIENTE_EM_USO
-		= "Não existe um cadastro de cozinha com código %d";
+		= "Paciente de código %d não pode ser removido, pois está em uso";
 	
 	private static final String MSG_PACIENTE_NAO_ENCONTRADO
-	= "Paciente de código %d não pode ser removido, pois está em uso";
+		= "Não existe um cadastro de cozinha com código %d";
 
 	public void excluir(Long pacienteId) {
 		try {
@@ -37,7 +37,7 @@ public class CadastroPacienteService {
 	public Paciente successOrFail(Long pacienteId) {
 		return pacienteRepository.findById(pacienteId)
 				.orElseThrow(() -> new EntidadeNaoEncontradaException(
-						String.format(MSG_PACIENTE_EM_USO, pacienteId)));
+						String.format(MSG_PACIENTE_NAO_ENCONTRADO, pacienteId)));
 	}
 	
 }
