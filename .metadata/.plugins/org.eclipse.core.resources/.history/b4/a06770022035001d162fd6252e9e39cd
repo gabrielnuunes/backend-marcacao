@@ -1,0 +1,11 @@
+package com.example.demo.domain.exception;
+
+public class MedicoNaoEncontradoException extends EntidadeNaoEncontradaException{
+	
+	
+
+	public MedicoNaoEncontradoException(String mensagem) {
+		super(mensagem);
+	}
+	
+}

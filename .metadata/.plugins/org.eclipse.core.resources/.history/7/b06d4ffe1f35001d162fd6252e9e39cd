@@ -1,0 +1,9 @@
+package com.example.demo.domain.exception;
+
+public class MedicoNaoEncontradoException {
+
+	public MedicoNaoEncontradoException(String mensagem) {
+		super(mensagem);
+	}
+	
+}
