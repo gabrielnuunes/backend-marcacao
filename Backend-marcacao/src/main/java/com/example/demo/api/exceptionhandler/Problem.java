@@ -2,7 +2,9 @@ package com.example.demo.api.exceptionhandler;
 
 import java.time.LocalDateTime;
 
+import lombok.Builder;
 
+@Builder
 public class Problem {
 
 	private LocalDateTime dataHora;

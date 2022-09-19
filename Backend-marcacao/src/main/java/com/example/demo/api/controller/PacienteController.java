@@ -65,6 +65,16 @@ public class PacienteController {
 		cadastroPaciente.excluir(pacienteId);
 	}
 	
+//	@ExceptionHandler(EntidadeNaoEncontradaException.class)
+//	public ResponseEntity<?> tratarEntidadeNaoEncontradaException(EntidadeNaoEncontradaException e) {
+//		Problem problema = new Problem();
+//		problema.setDataHora(LocalDateTime.now());
+//		problema.setMensagem(e.getMessage());	
+//		
+//		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+//				.body(e.getMessage());
+//	}
+	
 	@ExceptionHandler(EntidadeNaoEncontradaException.class)
 	public ResponseEntity<?> tratarEntidadeNaoEncontradaException(EntidadeNaoEncontradaException e) {
 		Problem problema = new Problem();
@@ -74,6 +84,5 @@ public class PacienteController {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND)
 				.body(e.getMessage());
 	}
-	
 	
 }

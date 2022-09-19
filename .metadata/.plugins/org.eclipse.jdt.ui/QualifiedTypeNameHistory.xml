@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonRootName"/>
     <fullyQualifiedTypeName name="com.example.demo.domain.repository.PacienteRepository"/>
     <fullyQualifiedTypeName name="com.example.demo.domain.exception.EntidadeNaoEcontradaException"/>
-    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
@@ -31,7 +30,6 @@
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
-    <fullyQualifiedTypeName name="com.example.demo.domain.exception.EntidadeNaoEncontradaException"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.example.demo.domain.repository.MedicoRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
@@ -39,4 +37,11 @@
     <fullyQualifiedTypeName name="com.example.demo.domain.exception.MedicoNaoEncontradoException"/>
     <fullyQualifiedTypeName name="org.springframework.dao.DataIntegrityViolationException"/>
     <fullyQualifiedTypeName name="com.example.demo.domain.exception.EntidadeEmUsoException"/>
+    <fullyQualifiedTypeName name="com.example.demo.domain.exception.EntidadeNaoEncontradaException"/>
+    <fullyQualifiedTypeName name="com.example.demo.api.exceptionhandler.Problem"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
 </qualifiedTypeNameHistroy>
