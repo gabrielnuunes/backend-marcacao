@@ -43,7 +43,8 @@ public class MedicoController {
 	
 	
 	@PutMapping("/{medicoId}")
-	public Medico atualizar(@PathVariable Long medicoId, @RequestBody Medico medico) {		
+	public Medico atualizar(@PathVariable Long medicoId, @RequestBody Medico medicoId) {
+		
 		Medico medicoAtual = cadastroMedico.successOrFail(medicoId);
 		
 		BeanUtils.copyProperties(medicoId, medicoAtual, "id");

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -41,9 +40,8 @@ public class MedicoController {
 		return medicoRepository.save(medico);
 	}
 	
-	
-	@PutMapping("/{medicoId}")
-	public Medico atualizar(@PathVariable Long medicoId, @RequestBody Medico medico) {		
+	public Medico atualizar(@PathVariable Long medicoId, @RequestBody Medico medicoId) {
+		
 		Medico medicoAtual = cadastroMedico.successOrFail(medicoId);
 		
 		BeanUtils.copyProperties(medicoId, medicoAtual, "id");
