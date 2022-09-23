@@ -52,30 +52,11 @@ public class MedicoController {
 		
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/{medicoId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void excluir(@PathVariable medicoId) {
+	public void excluir(@PathVariable Long medicoId) {
 		cadastroMedico.excluir(medicoId);
 	}
 
-	@ExceptionHandler(EntidadeNaoEncontradaException.class)
-	public ResponseEntity<?> tratarEntidadeNaoEncontradaExcetion(EntidadeNaoEncontradaException e) {
-
-		Problem problema = Problem.builder()
-				.dataHora(LocalDateTime.now())
-				.mensagem(e.getMessage()).build();
-
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(problema);
-	}
-
-	@ExceptionHandler(NegocioException.class)
-	public ResponseEntity<?> tratarNegocioException(NegocioException e) {
-
-		Problem problema = Problem.builder()
-				.dataHora(LocalDateTime.now())
-				.mensagem(e.getMessage()).build();
-
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problema);
-	}
 	
 }
