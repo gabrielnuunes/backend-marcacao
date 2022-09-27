@@ -20,12 +20,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
             EntidadeNaoEncontradaException exception, WebRequest request) {
 
     	HttpStatus status = HttpStatus.NOT_FOUND;
+    	ProblemType prolemType = ProblemType.ENTIDADE_NAO_ENCONTRADA;
+    	String detail = exception.getMessage();
     	
-    	Problem problem = Problem.builder()
-    			.status(status.value())
-    			.type("http://pacientes.com.br/entidade-nao-encontrada")
-    			.detail(exception.getMessage())
-    			.build();
+    	Problem problem = createProblemBuilder(status, prolemType, detail).build();
+    	
+//    	Problem problem = Problem.builder()
+//    			.status(status.value())
+//    			.type("http://pacientes.com.br/entidade-nao-encontrada")
+//    			.detail(exception.getMessage())
+//    			.build();
     	
         return handleExceptionInternal(exception, problem,
                 new HttpHeaders(), status, request);
@@ -57,4 +61,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         return super.handleExceptionInternal(exception, body, headers, status, request);
     }
+    
+    private Problem.ProblemBuilder createProblemBuilder(HttpStatus status, 
+    		ProblemType problemType, String detail) {
+    	
+    	return Problem.builder()
+    			.status(status.value())
+    			.type(problemType.getUri())
+    			.title(problemType.getTitle())
+    			.detail(detail);
+    }
+    
+    
 }
