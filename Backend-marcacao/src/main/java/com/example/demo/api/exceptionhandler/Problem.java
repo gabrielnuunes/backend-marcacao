@@ -1,29 +1,20 @@
 package com.example.demo.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Builder;
 import lombok.Getter;
 
+@JsonInclude(Include.NON_NULL)
 @Getter
 @Builder
 public class Problem {
 
-	private LocalDateTime dataHora;
-	private String mensagem;	
-		
-	public LocalDateTime getDataHora() {
-		return dataHora;
-	}
-	public void setDataHora(LocalDateTime dataHora) {
-		this.dataHora = dataHora;
-	}
-	public String getMensagem() {
-		return mensagem;
-	}
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
+	private Integer status;
+	private String type;
+	private String title;
+	private String detail;
 	
 	
 	
