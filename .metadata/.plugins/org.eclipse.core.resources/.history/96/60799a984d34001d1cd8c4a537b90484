@@ -1,9 +1,0 @@
-package com.example.demo.domain.exception;
-
-public class EntidadeNaoEcontradaException {
-
-	public EntidadeNaoEncontradoException(String mensagem ) {
-		super(mensagem);
-	}
-	
-}
