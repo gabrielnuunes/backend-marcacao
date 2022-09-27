@@ -1,5 +1,6 @@
 package com.example.demo.api.exceptionhandler;
 
+import com.example.demo.domain.exception.EntidadeEmUsoException;
 import com.example.demo.domain.exception.EntidadeNaoEncontradaException;
 import com.example.demo.domain.exception.NegocioException;
 import org.springframework.http.HttpHeaders;
@@ -51,6 +52,20 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 //    			.build();
     	
     }
+    
+    @ExceptionHandler(EntidadeEmUsoException.class)
+    public ResponseEntity<?> tratarEntidadeEmUsoException(
+    		EntidadeEmUsoException ex, WebRequest request ) {
+    	
+    	HttpStatus status = HttpStatus.CONFLICT;
+    	ProblemType problemType = ProblemType.ENTIDADE_EM_USO;
+    	String detail = ex.getMessage();
+    	
+    	Problem problem = createProblemBuilder(status, problemType, detail).build();
+    	
+    	return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
+    	
+    } 
 
     @ExceptionHandler(NegocioException.class)
     public ResponseEntity<?> tratarNegocioException(
