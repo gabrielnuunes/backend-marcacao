@@ -45,7 +45,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<Object> handlePropertyBindingException(PropertyBindingException exception,
         HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-        String path = joinPath()
+        String path = joinPath(exception.getPath());
+		ProblemType problemType = ProblemType.MENSAGEM_NAO_LEGIVEL;
+		String detail = String.format("A propriedade '%s' não existe. "
+				+ "Corrija ou remova essa propriedade e tente novamente.", path);
+		Problem problem = createProblemBuilder(status, problemType, detail).build();
+
+		return handleExceptionInternal(exception, problem, headers, status, request);
 
     }
 
