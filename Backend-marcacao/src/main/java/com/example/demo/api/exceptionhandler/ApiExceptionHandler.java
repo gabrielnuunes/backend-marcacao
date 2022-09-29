@@ -21,8 +21,7 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
-
-    @Override
+	@Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
         HttpHeaders headers, HttpStatus status, WebRequest request) {
 
@@ -30,12 +29,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         if (rootCause instanceof InvalidFormatException) {
             return handleInvalidFormatException((InvalidFormatException) rootCause, headers, status, request);
-        }
-
+        } else if(rootCause instanceof PropertyBindingException) {
+			return handlePropertyBindingException((PropertyBindingException) rootCause, headers, status, request);
+		}
 
         ProblemType prolemType = ProblemType.MENSAGEM_NAO_LEGIVEL;
         String detail = "O corpo da requisição está inválido. Verifique se há erro de sintaxe.";
-
         Problem problem = createProblemBuilder(status, prolemType, detail).build();
 
         return handleExceptionInternal(ex, problem, headers, status, request);
@@ -58,13 +57,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<Object> handleInvalidFormatException(InvalidFormatException ex,
         HttpHeaders headers, HttpStatus status, WebRequest request) {
 
-        String path = ex.getPath().stream().map(ref -> ref.getFieldName()).collect(Collectors.joining("."));
-
+        String path = joinPath(ex.getPath());
 
         ProblemType problemType = ProblemType.MENSAGEM_NAO_LEGIVEL;
         String detail = String.format("A propriedade '%s' recebeu um valor do tipo '%s', que é inválido. " +
-                "Informe um valor compatível com o tipo '%s'.", path, ex.getValue(), ex.getTargetType().getSimpleName());
-
+                "Informe um valor compatível com o tipo '%s'.",
+				path, ex.getValue(), ex.getTargetType().getSimpleName());
         Problem problem = createProblemBuilder(status, problemType, detail).build();
 
         return handleExceptionInternal(ex, problem, headers, status, request);
@@ -94,7 +92,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(EntidadeEmUsoException.class)
     public ResponseEntity<?> tratarEntidadeEmUsoException(
-            EntidadeEmUsoException ex, WebRequest request) {
+        EntidadeEmUsoException ex, WebRequest request) {
 
         HttpStatus status = HttpStatus.CONFLICT;
         ProblemType problemType = ProblemType.ENTIDADE_EM_USO;
@@ -108,7 +106,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NegocioException.class)
     public ResponseEntity<?> tratarNegocioException(
-            NegocioException ex, WebRequest request) {
+        NegocioException ex, WebRequest request) {
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ProblemType problemType = ProblemType.ERRO_DE_NEGOCIO;
@@ -140,7 +138,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     private Problem.ProblemBuilder createProblemBuilder(HttpStatus status,
-                                                        ProblemType problemType, String detail) {
+        ProblemType problemType, String detail) {
 
         return Problem.builder()
                 .status(status.value())
