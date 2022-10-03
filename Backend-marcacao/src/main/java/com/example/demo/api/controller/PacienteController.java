@@ -31,6 +31,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Api(tags = "Pacientes")
 @RestController
@@ -43,22 +44,26 @@ public class PacienteController {
 	@Autowired
 	CadastroPacienteService cadastroPaciente;
 
+	@ApiOperation("Lista todos os pacientes")
 	@GetMapping
 	public List<Paciente> listar() {
 		return pacienteRepository.findAll();
 	} 
 	
+	@ApiOperation("Busca um paciente pelo ID")
 	@GetMapping("/{pacienteId}")
 	public Paciente buscar(@PathVariable Long pacienteId) {
 		return cadastroPaciente.successOrFail(pacienteId);
 	}
 	
+	@ApiOperation("Cadastra um paciente")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Paciente adicionar(@RequestBody Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
 	
+	@ApiOperation("Atualiza um paciente por ID")
 	@PutMapping("/{pacienteId}")
 	public Paciente atualizar(@PathVariable Long pacienteId, @RequestBody Paciente paciente) {
 		Paciente pacienteAtual = cadastroPaciente.successOrFail(pacienteId);
@@ -68,12 +73,14 @@ public class PacienteController {
 		return pacienteRepository.save(pacienteAtual);
 	}
 	
+	@ApiOperation("Deleta um paciente pelo ID")
 	@DeleteMapping("/{pacienteId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long pacienteId) {
 		cadastroPaciente.excluir(pacienteId);
 	}
 
+	@ApiOperation("Atualiza parcialmente um paciente pelo ID")
 	@PatchMapping("/{pacienteId}")
 	public Paciente atualizarParcial(@PathVariable Long pacienteId, @RequestBody Map<String, Object> campos,
 			HttpServletRequest request) {
