@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -22,11 +20,6 @@ public class Paciente {
 	@Column(nullable = false)
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name = "medico_id", nullable = false)
-	private Medico medico;
-	
-
 	public Long getId() {
 		return id;
 	}
