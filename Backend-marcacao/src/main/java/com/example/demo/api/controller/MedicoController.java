@@ -19,6 +19,9 @@ import com.example.demo.domain.model.Medico;
 import com.example.demo.domain.repository.MedicoRepository;
 import com.example.demo.domain.service.CadastroMedicoService;
 
+import io.swagger.annotations.Api;
+
+@Api(tags = "Médicos")
 @RestController
 @RequestMapping(value = "/medicos")
 public class MedicoController {

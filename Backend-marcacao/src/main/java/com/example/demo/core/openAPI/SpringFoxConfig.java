@@ -7,6 +7,7 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+import springfox.documentation.service.Tag;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
@@ -19,7 +20,9 @@ public class SpringFoxConfig {
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.example.demo.api"))
 				.build()
-				.apiInfo(apiInfo());
+				.apiInfo(apiInfo())
+				.tags(new Tag("Pacientes", "Controller que gerencia os pacientes"), 
+						new Tag("Médicos", "Controller que gerencia os médicos"));
 	}
 	
 	public ApiInfo apiInfo() {

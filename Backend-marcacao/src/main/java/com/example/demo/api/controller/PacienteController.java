@@ -30,6 +30,9 @@ import com.example.demo.domain.service.CadastroPacienteService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.swagger.annotations.Api;
+
+@Api(tags = "Pacientes")
 @RestController
 @RequestMapping(value = "/pacientes")
 public class PacienteController {
