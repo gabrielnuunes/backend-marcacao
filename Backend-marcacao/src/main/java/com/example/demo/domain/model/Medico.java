@@ -1,10 +1,5 @@
 package com.example.demo.domain.model;
 
-<<<<<<< HEAD
-import java.util.List;
-
-=======
->>>>>>> cca5308b4323e51eaf2068e872cc2822217e2a77
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,12 +19,7 @@ public class Medico {
 	
 	@Column(nullable = false)
 	private String nome;
-<<<<<<< HEAD
-	
-=======
-		
 
->>>>>>> cca5308b4323e51eaf2068e872cc2822217e2a77
 	public Long getId() {
 		return id;
 	}
