@@ -1,21 +1,26 @@
 package com.example.demo.api.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-import com.example.demo.api.exceptionhandler.Problem;
-import com.example.demo.domain.exception.EntidadeNaoEncontradaException;
-import com.example.demo.domain.exception.NegocioException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.model.Medico;
 import com.example.demo.domain.repository.MedicoRepository;
 import com.example.demo.domain.service.CadastroMedicoService;
 
+@RestController
+@RequestMapping(value = "/medicos")
 public class MedicoController {
 
 	@Autowired
