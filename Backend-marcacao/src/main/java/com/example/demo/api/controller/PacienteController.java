@@ -32,6 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @Api(tags = "Pacientes")
 @RestController
@@ -52,20 +53,26 @@ public class PacienteController {
 	
 	@ApiOperation("Busca um paciente pelo ID")
 	@GetMapping("/{pacienteId}")
-	public Paciente buscar(@PathVariable Long pacienteId) {
+	public Paciente buscar(
+			@ApiParam(value = "ID de um paciente") 
+			@PathVariable Long pacienteId) {
 		return cadastroPaciente.successOrFail(pacienteId);
 	}
 	
 	@ApiOperation("Cadastra um paciente")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Paciente adicionar(@RequestBody Paciente paciente) {
+	public Paciente adicionar(
+			@ApiParam(name = "corpo", value = "Representação de um novo paciente") 
+			@RequestBody Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
 	
 	@ApiOperation("Atualiza um paciente por ID")
 	@PutMapping("/{pacienteId}")
-	public Paciente atualizar(@PathVariable Long pacienteId, @RequestBody Paciente paciente) {
+	public Paciente atualizar(			
+			@ApiParam(value = "Id de um paciente") @PathVariable Long pacienteId,
+			@ApiParam(name = "Corpo", value = "Representação de um paciente com os novos dados") @RequestBody Paciente paciente) {
 		Paciente pacienteAtual = cadastroPaciente.successOrFail(pacienteId);
 		
 		BeanUtils.copyProperties(paciente, pacienteAtual, "id");
