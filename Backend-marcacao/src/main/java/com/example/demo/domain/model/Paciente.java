@@ -8,15 +8,19 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
 @JsonRootName("paciente")
 public class Paciente {
 
+	@ApiModelProperty(value = "ID do paciente", example = "1")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@ApiModelProperty(example = "Brasília", required = true)
 	@Column(nullable = false)
 	private String nome;
 	
