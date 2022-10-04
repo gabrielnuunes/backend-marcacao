@@ -8,8 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 
+import com.example.demo.api.exceptionhandler.Problem;
+import com.fasterxml.classmate.TypeResolver;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import lombok.var;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseBuilder;
 import springfox.documentation.service.ApiInfo;
@@ -17,11 +21,14 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
 import springfox.documentation.service.Tag;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.json.JacksonModuleRegistrar;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SpringFoxConfig {
 
+	TypeResolver typeResolver = new TypeResolver();
+	
 	@Bean
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.OAS_30)
@@ -31,6 +38,7 @@ public class SpringFoxConfig {
 					.build()
 				.useDefaultResponseMessages(false)
 				.globalResponses(HttpMethod.GET, globalGetResponseMessages())
+				.additionalModels(typeResolver.resolve(Problem.class))
 				.apiInfo(apiInfo())
 				.tags(new Tag("Pacientes", "Controller que gerencia os pacientes"), 
 						new Tag("Médicos", "Controller que gerencia os médicos"));
@@ -57,4 +65,10 @@ public class SpringFoxConfig {
 				.contact(new Contact("Gabriel Nunes", "https://github.com/gabrielnuunes", "gabrielnuunes22@gmail.com"))
 				.build();
 	}
+	
+	@Bean
+	public JacksonModuleRegistrar springFoxJacksonConfig() {
+		return objectMapper -> objectMapper.registerModule(new JavaTimeModule());
+	}
+	
 }
