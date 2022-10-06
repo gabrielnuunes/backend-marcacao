@@ -24,20 +24,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.api.controller.openapi.PacienteControllerOpenApi;
 import com.example.demo.domain.model.Paciente;
 import com.example.demo.domain.repository.PacienteRepository;
 import com.example.demo.domain.service.CadastroPacienteService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-
-@Api(tags = "Pacientes")
 @RestController
 @RequestMapping(value = "/pacientes")
-public class PacienteController {
+public class PacienteController implements PacienteControllerOpenApi {
 	
 	@Autowired
 	PacienteRepository pacienteRepository;
@@ -45,34 +41,28 @@ public class PacienteController {
 	@Autowired
 	CadastroPacienteService cadastroPaciente;
 
-	@ApiOperation("Lista todos os pacientes")
+	@Override
 	@GetMapping
 	public List<Paciente> listar() {
 		return pacienteRepository.findAll();
 	} 
 	
-	@ApiOperation("Busca um paciente pelo ID")
+	@Override
 	@GetMapping("/{pacienteId}")
-	public Paciente buscar(
-			@ApiParam(value = "ID de um paciente") 
-			@PathVariable Long pacienteId) {
+	public Paciente buscar( @PathVariable Long pacienteId) {
 		return cadastroPaciente.successOrFail(pacienteId);
 	}
 	
-	@ApiOperation("Cadastra um paciente")
+	@Override
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Paciente adicionar(
-			@ApiParam(name = "corpo", value = "Representação de um novo paciente") 
-			@RequestBody Paciente paciente) {
+	public Paciente adicionar( @RequestBody Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
 	
-	@ApiOperation("Atualiza um paciente por ID")
+	@Override
 	@PutMapping("/{pacienteId}")
-	public Paciente atualizar(			
-			@ApiParam(value = "Id de um paciente") @PathVariable Long pacienteId,
-			@ApiParam(name = "Corpo", value = "Representação de um paciente com os novos dados") @RequestBody Paciente paciente) {
+	public Paciente atualizar( @PathVariable Long pacienteId, @RequestBody Paciente paciente) {
 		Paciente pacienteAtual = cadastroPaciente.successOrFail(pacienteId);
 		
 		BeanUtils.copyProperties(paciente, pacienteAtual, "id");
@@ -80,14 +70,14 @@ public class PacienteController {
 		return pacienteRepository.save(pacienteAtual);
 	}
 	
-	@ApiOperation("Deleta um paciente pelo ID")
+	@Override
 	@DeleteMapping("/{pacienteId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Long pacienteId) {
 		cadastroPaciente.excluir(pacienteId);
 	}
 
-	@ApiOperation("Atualiza parcialmente um paciente pelo ID")
+	@Override
 	@PatchMapping("/{pacienteId}")
 	public Paciente atualizarParcial(@PathVariable Long pacienteId, @RequestBody Map<String, Object> campos,
 			HttpServletRequest request) {
