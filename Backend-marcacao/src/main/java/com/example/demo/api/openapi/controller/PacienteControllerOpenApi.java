@@ -1,4 +1,4 @@
-package com.example.demo.api.controller.openapi;
+package com.example.demo.api.openapi.controller;
 
 import java.util.List;
 import java.util.Map;

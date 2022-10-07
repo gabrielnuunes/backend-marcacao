@@ -6,11 +6,16 @@ import java.util.function.Consumer;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 import com.example.demo.api.exceptionhandler.Problem;
+import com.example.demo.api.openapi.model.PacientesModelOpenApi;
+import com.example.demo.api.openapi.model.PageableModelOpenApi;
+import com.example.demo.domain.model.Paciente;
 import com.fasterxml.classmate.TypeResolver;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -19,13 +24,14 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RepresentationBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseBuilder;
+import springfox.documentation.schema.AlternateTypeRules;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
+import springfox.documentation.service.Tag;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.json.JacksonModuleRegistrar;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.service.Tag;
 
 @Configuration
 public class SpringFoxConfig {
@@ -45,6 +51,10 @@ public class SpringFoxConfig {
 				.globalResponses(HttpMethod.PUT, globalPostPutResponseMessages())
 				.globalResponses(HttpMethod.DELETE, globalDeleteResponseMessages())
 				.additionalModels(typeResolver.resolve(Problem.class))
+				.directModelSubstitute(Pageable.class, PageableModelOpenApi.class)
+				.alternateTypeRules(AlternateTypeRules.newRule(
+						typeResolver.resolve(Page.class, Paciente.class),
+						PacientesModelOpenApi.class))
 				.apiInfo(apiInfo())
 				.tags(new Tag("Pacientes", "Controller que gerencia os pacientes"));
 	}

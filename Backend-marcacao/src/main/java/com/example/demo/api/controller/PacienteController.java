@@ -23,53 +23,55 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
-import com.example.demo.api.controller.openapi.PacienteControllerOpenApi;
+import com.example.demo.api.openapi.controller.PacienteControllerOpenApi;
 import com.example.demo.domain.model.Paciente;
 import com.example.demo.domain.repository.PacienteRepository;
 import com.example.demo.domain.service.CadastroPacienteService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 @RestController
 @RequestMapping(value = "/pacientes")
 public class PacienteController implements PacienteControllerOpenApi {
-	
+
 	@Autowired
 	PacienteRepository pacienteRepository;
-	
+
 	@Autowired
 	CadastroPacienteService cadastroPaciente;
 
 	@Override
-	@GetMapping
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Paciente> listar() {
 		return pacienteRepository.findAll();
-	} 
-	
+	}
+
 	@Override
-	@GetMapping("/{pacienteId}")
-	public Paciente buscar( @PathVariable Long pacienteId) {
+	@GetMapping(path = "/{pacienteId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Paciente buscar(@PathVariable Long pacienteId) {
 		return cadastroPaciente.successOrFail(pacienteId);
 	}
-	
+
 	@Override
-	@PostMapping
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Paciente adicionar( @RequestBody Paciente paciente) {
+	public Paciente adicionar(@RequestBody Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
-	
+
 	@Override
-	@PutMapping("/{pacienteId}")
-	public Paciente atualizar( @PathVariable Long pacienteId, @RequestBody Paciente paciente) {
+	@PutMapping(path = "/{cidadeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Paciente atualizar(@PathVariable Long pacienteId, @RequestBody Paciente paciente) {
 		Paciente pacienteAtual = cadastroPaciente.successOrFail(pacienteId);
-		
+
 		BeanUtils.copyProperties(paciente, pacienteAtual, "id");
-		
+
 		return pacienteRepository.save(pacienteAtual);
 	}
-	
+
 	@Override
 	@DeleteMapping("/{pacienteId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -78,43 +80,40 @@ public class PacienteController implements PacienteControllerOpenApi {
 	}
 
 	@Override
-	@PatchMapping("/{pacienteId}")
+	@PatchMapping(path = "/{pacienteId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Paciente atualizarParcial(@PathVariable Long pacienteId, @RequestBody Map<String, Object> campos,
 			HttpServletRequest request) {
 		Paciente pacienteAtual = cadastroPaciente.successOrFail(pacienteId);
-		
+
 		merge(campos, pacienteAtual, null);
 
 		return atualizar(pacienteId, pacienteAtual);
 	}
 
-	private void merge(Map<String, Object> dadosOrigem, Paciente pacienteDestino,
-			HttpServletRequest request) {
-		
+	private void merge(Map<String, Object> dadosOrigem, Paciente pacienteDestino, HttpServletRequest request) {
+
 		ServletServerHttpRequest serverHttpRequest = new ServletServerHttpRequest(request);
-		
+
 		try {
-			ObjectMapper objectMapper = new ObjectMapper();		
+			ObjectMapper objectMapper = new ObjectMapper();
 			objectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true);
 			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-			
+
 			Paciente pacienteOrigem = objectMapper.convertValue(dadosOrigem, Paciente.class);
-			
+
 			dadosOrigem.forEach((nomePropriedade, valorPropriedade) -> {
 				Field field = ReflectionUtils.findField(Paciente.class, nomePropriedade);
 				field.setAccessible(true);
-				
+
 				Object novoValor = ReflectionUtils.getField(field, pacienteOrigem);
-				
+
 				ReflectionUtils.setField(field, pacienteDestino, novoValor);
 			});
 		} catch (IllegalArgumentException e) {
 			Throwable rootCause = ExceptionUtils.getRootCause(e);
 			throw new HttpMessageNotReadableException(e.getMessage(), rootCause, serverHttpRequest);
 		}
-		
-
-		} 
 
 	}
 
+}
