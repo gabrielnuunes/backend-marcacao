@@ -1,6 +1,6 @@
 package com.example.demo.api.exceptionhandler;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -20,7 +20,7 @@ public class Problem {
 	private Integer status;
 	
 	@ApiModelProperty(value = "2022-09-05T22:15:02.70844Z")
-	private OffsetDateTime timestamp;
+	private LocalDateTime timestamp;
 	
 	@ApiModelProperty(value = "http://com.example.demo/dados-invalidos ")
 	private String type;

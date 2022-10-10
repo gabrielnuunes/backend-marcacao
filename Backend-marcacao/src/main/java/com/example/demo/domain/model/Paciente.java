@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -21,6 +22,7 @@ public class Paciente {
 	private Long id;
 	
 	@ApiModelProperty(example = "Brasília", required = true)
+	@NotNull
 	@Column(nullable = false)
 	private String nome;
 	

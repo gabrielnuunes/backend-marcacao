@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
@@ -58,7 +59,7 @@ public class PacienteController implements PacienteControllerOpenApi {
 	@Override
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Paciente adicionar(@RequestBody Paciente paciente) {
+	public Paciente adicionar(@RequestBody @Valid Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
 
