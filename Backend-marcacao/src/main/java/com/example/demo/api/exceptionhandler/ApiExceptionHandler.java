@@ -1,25 +1,27 @@
 package com.example.demo.api.exceptionhandler;
 
-import com.example.demo.domain.exception.EntidadeEmUsoException;
-import com.example.demo.domain.exception.EntidadeNaoEncontradaException;
-import com.example.demo.domain.exception.NegocioException;
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.fasterxml.jackson.databind.exc.PropertyBindingException;
-import com.fasterxml.jackson.databind.JsonMappingException.Reference;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.example.demo.domain.exception.EntidadeEmUsoException;
+import com.example.demo.domain.exception.EntidadeNaoEncontradaException;
+import com.example.demo.domain.exception.NegocioException;
+import com.fasterxml.jackson.databind.JsonMappingException.Reference;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.fasterxml.jackson.databind.exc.PropertyBindingException;
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
@@ -50,8 +52,18 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		ProblemType problemType = ProblemType.DADOS_INVALIDOS;
 		String detail = "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.";
 		
+		BindingResult bindingResult = ex.getBindingResult();
+		
+		List<Problem.Field> problemFields = bindingResult.getFieldErrors()
+				.stream().map(fieldError -> Problem.Field.builder()
+						.nome(fieldError.getField())
+						.userMessage(fieldError.getDefaultMessage())
+						.build())
+				.collect(Collectors.toList());
+		
 		Problem problem = createProblemBuilder(status, problemType, detail)
 				.userMessage(detail)
+				.fields(problemFields)
 				.build();
 		
 		return handleExceptionInternal(ex, problem, headers, status, request);
@@ -93,7 +105,9 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         ProblemType prolemType = ProblemType.ENTIDADE_NAO_ENCONTRADA;
         String detail = exception.getMessage();
 
-        Problem problem = createProblemBuilder(status, prolemType, detail).build();
+        Problem problem = createProblemBuilder(status, prolemType, detail)
+        		.userMessage(detail)
+        		.build();
 
         return handleExceptionInternal(exception, problem,
                 new HttpHeaders(), status, request);

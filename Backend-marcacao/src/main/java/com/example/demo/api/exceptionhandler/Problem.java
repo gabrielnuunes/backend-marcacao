@@ -1,6 +1,7 @@
 package com.example.demo.api.exceptionhandler;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -34,6 +35,16 @@ public class Problem {
 	@ApiModelProperty(value = "Um ou mais campos estão inválidos. Favor realizar o preenchimento correto.")	
 	private String userMessage;
 	
+	private List<Field> fields;
 	
+	
+		@Getter
+		@Builder
+		public static class Field {
+			
+			private String nome;
+			private String userMessage;
+			
+		}
 	
 }
