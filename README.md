@@ -5,7 +5,7 @@ API REST construída com Spring Boot, para a gestão e cadastramento de paciente
 
 Tecnologias utilizadas \
 •	API construída no padrão Domain Driven Desgin \
-•	Tratamento de erros e exceções de forma global com padrão RFC 7807 \
+•	Tratamento de erros e exceções de forma global \
 •	Validações dos recursos com Bean Validation \
 •	Documentação da API com OpenAPI, Swagger UI e SpringFox \
 •	Teste de integração com Junit 
